@@ -2,7 +2,7 @@
   "name": "antigravity-live-preview",
   "displayName": "Antigravity Live Preview",
   "description": "Live preview extension for Antigravity & VS Code with multi-tab support",
-  "version": "0.2.2",
+  "version": "0.2.5",
   "publisher": "torsten-wich-heiter",
   "author": {
     "name": "Torsten Wich Heiter"
@@ -44,7 +44,8 @@
         {
           "command": "antigravity.openPreview",
           "when": "editorLangId == html",
-          "group": "navigation"
+          "group": "navigation",
+          "icon": "$(globe)"
         }
       ]
     }

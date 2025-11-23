@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
+import * as fs from 'fs';
 
 interface PreviewTab {
     id: string;
@@ -350,6 +351,39 @@ export class MultiTabPreviewPanel {
         const documentDir = path.dirname(documentUri.fsPath);
         htmlContent = this._convertResourcePaths(htmlContent, documentUri);
 
+        // Add script to prevent navigation and handle links
+        const navigationScript = `
+            <script>
+                (function() {
+                    // Prevent navigation by intercepting link clicks
+                    document.addEventListener('click', function(e) {
+                        const target = e.target.closest('a');
+                        if (target && target.href) {
+                            const href = target.getAttribute('href');
+                            // Allow hash links for anchor navigation
+                            if (href && href.startsWith('#')) {
+                                return; // Allow default behavior for hash links
+                            }
+                            // Prevent navigation for all other links
+                            e.preventDefault();
+                            // Optionally open external links in browser
+                            if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
+                                // External links - could be opened in external browser
+                                console.log('External link clicked:', href);
+                            }
+                        }
+                    }, true);
+                })();
+            </script>
+        `;
+
+        // Insert script before closing body tag, or at the end if no body tag
+        if (htmlContent.includes('</body>')) {
+            htmlContent = htmlContent.replace('</body>', navigationScript + '</body>');
+        } else {
+            htmlContent = htmlContent + navigationScript;
+        }
+
         return `
             <iframe srcdoc="${this._escapeHtml(htmlContent)}" 
                     sandbox="allow-scripts allow-same-origin" 
@@ -361,16 +395,40 @@ export class MultiTabPreviewPanel {
     private _convertResourcePaths(html: string, documentUri: vscode.Uri): string {
         const documentDir = path.dirname(documentUri.fsPath);
 
-        html = html.replace(/href=["'](?!http|https|\/\/|data:)(.*?)["']/gi, (match, p1) => {
-            const resourcePath = path.join(documentDir, p1);
-            const resourceUri = vscode.Uri.file(resourcePath);
-            return `href="${this._panel.webview.asWebviewUri(resourceUri)}"`;
+        // Inline CSS files
+        html = html.replace(/<link\s+([^>]*?)href=["'](?!http|https:\/\/|\/\/|data:)(.*?\.css)["']([^>]*?)>/gi, (match, before, cssPath, after) => {
+            try {
+                const resourcePath = path.join(documentDir, cssPath);
+                if (fs.existsSync(resourcePath)) {
+                    const cssContent = fs.readFileSync(resourcePath, 'utf-8');
+                    return `<style>${cssContent}</style>`;
+                }
+            } catch (error) {
+                console.error(`Failed to load CSS file: ${cssPath}`, error);
+            }
+            return match; // Keep original if file not found
         });
 
-        html = html.replace(/src=["'](?!http|https|\/\/|data:)(.*?)["']/gi, (match, p1) => {
+        // Convert image src paths to webview URIs
+        html = html.replace(/src=["'](?!http|https:\/\/|\/\/|data:)(.*?)["']/gi, (match, p1) => {
             const resourcePath = path.join(documentDir, p1);
             const resourceUri = vscode.Uri.file(resourcePath);
             return `src="${this._panel.webview.asWebviewUri(resourceUri)}"`;
+        });
+
+        // Convert script src paths to webview URIs
+        html = html.replace(/<script\s+([^>]*?)src=["'](?!http|https:\/\/|\/\/|data:)(.*?)["']([^>]*?)>/gi, (match, before, scriptPath, after) => {
+            try {
+                const resourcePath = path.join(documentDir, scriptPath);
+                // For local scripts, we can try to inline them too
+                if (fs.existsSync(resourcePath)) {
+                    const scriptContent = fs.readFileSync(resourcePath, 'utf-8');
+                    return `<script ${before}${after}>${scriptContent}</script>`;
+                }
+            } catch (error) {
+                console.error(`Failed to load script file: ${scriptPath}`, error);
+            }
+            return match;
         });
 
         return html;
