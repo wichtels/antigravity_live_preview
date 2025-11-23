@@ -1,6 +1,6 @@
 # Antigravity Live Preview Extension
 
-A VS Code extension for live preview of HTML files with multi-tab support.
+A live preview extension for **Antigravity & VS Code** with multi-tab support.
 
 **Author:** Torsten Wich Heiter  
 **Website:** [wichtel.art](https://wichtel.art)
@@ -10,13 +10,15 @@ A VS Code extension for live preview of HTML files with multi-tab support.
 - ⚡ **Instant Updates**: See your changes instantly as you type
 - 📑 **Multi-Tabs**: View multiple HTML files simultaneously in different tabs
 - 🎨 **Pixel Perfect**: Rendering with the same engine as your browser
-- 🔌 **Seamless**: Integrated directly into VS Code, no context switching
+- 🔌 **Seamless**: Integrated directly into Antigravity & VS Code, no context switching
 - 🔄 **Auto-Reload**: CSS, JavaScript and images load automatically
 
 ## 📦 Installation
 
+### For Antigravity & VS Code:
+
 1. Download the `.vsix` file
-2. Open VS Code
+2. Open Antigravity or VS Code
 3. Press `Ctrl+Shift+X` to open the Extensions view
 4. Click the "..." menu and select "Install from VSIX..."
 5. Select the downloaded `.vsix` file
@@ -25,7 +27,7 @@ A VS Code extension for live preview of HTML files with multi-tab support.
 
 ### Editor Panel (Recommended)
 
-1. Open an HTML file in VS Code
+1. Open an HTML file in Antigravity or VS Code
 2. Click the **🌐 Globe icon** in the top right of the editor
 3. Or use `Ctrl+Shift+P` and type "Antigravity: Open Live Preview"
 4. The preview opens in the editor area beside your code
@@ -35,7 +37,7 @@ A VS Code extension for live preview of HTML files with multi-tab support.
 
 ### Alternative: Command Palette
 
-1. Open an HTML file in VS Code
+1. Open an HTML file in Antigravity or VS Code
 2. Press `Ctrl+Shift+P` for the Command Palette
 3. Type "Antigravity: Open Live Preview"
 
@@ -47,16 +49,17 @@ A VS Code extension for live preview of HTML files with multi-tab support.
 
 ## ⚙️ System Requirements
 
-- Visual Studio Code 1.80.0 or higher
+- Antigravity IDE or Visual Studio Code 1.80.0 or higher
 - No additional dependencies required
 
 ## 📝 Changelog
 
-### [0.2.0] - 2025-11-23
+### [0.2.1] - 2025-11-23
 
-- ✨ **NEW**: Preview now opens in editor area (center panel)
-- ✨ Multi-tab support with better UI
+- ✨ Preview now opens in editor area (center panel)
+- ✨ Multi-tab support with improved UI
 - ✨ Improved resource loading (CSS, JS, images)
+- ✨ Compatible with Antigravity & VS Code
 - 🛠️ All text in English
 
 ### [0.1.0] - 2025-11-23
@@ -64,7 +67,7 @@ A VS Code extension for live preview of HTML files with multi-tab support.
 - ✨ **NEW**: Multi-tab support
 - ✨ Improved preview rendering
 - ✨ File browser added
-- 🛠️ Author updated: Torsten Wich Heiter
+- 🛠️ Author: Torsten Wich Heiter
 
 ### [0.0.1]
 - Initial version
@@ -72,7 +75,7 @@ A VS Code extension for live preview of HTML files with multi-tab support.
 ## 🌐 Links
 
 - **Website**: [wichtel.art](https://wichtel.art)
-- **Repository**: [GitHub](https://github.com/torsten-wich-heiter/antigravity-live-preview)
+- **Repository**: [GitHub](https://github.com/wichtels/antigravity_live_preview)
 
 ## 📄 License
 
@@ -80,6 +83,6 @@ MIT - Copyright (c) 2025 Torsten Wich Heiter
 
 ---
 
-**Happy coding!** ⚡
+**Happy coding in Antigravity & VS Code!** ⚡
 
 Made with ❤️ by [Torsten Wich Heiter](https://wichtel.art)

@@ -1,8 +1,8 @@
 {
   "name": "antigravity-live-preview",
   "displayName": "Antigravity Live Preview",
-  "description": "A live preview browser extension with multi-tab support",
-  "version": "0.2.1",
+  "description": "Live preview extension for Antigravity & VS Code with multi-tab support",
+  "version": "0.2.2",
   "publisher": "torsten-wich-heiter",
   "author": {
     "name": "Torsten Wich Heiter"
