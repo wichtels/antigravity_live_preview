@@ -81,7 +81,7 @@ A live preview extension for **Antigravity & VS Code** with multi-tab support.
 
 ## 📄 License
 
-MIT - Copyright (c) 2025 Torsten Wich Heiter
+GPL-3.0 - Copyright (c) 2025 Torsten Wich Heiter
 
 ---
 
