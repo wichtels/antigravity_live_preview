@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity Live Preview</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">Antigravity</div>
+        <div class="links">
+            <a href="#features">Features</a>
+            <a href="#docs">Documentation</a>
+            <a href="#download">Download</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Code at the <span class="gradient-text">Speed of Thought</span></h1>
+            <p>Instant feedback. Seamless integration. The ultimate live preview for VS Code.</p>
+            <button class="cta-button">Get Started</button>
+        </div>
+        <div class="hero-visual">
+            <div class="code-window">
+                <div class="window-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="window-body">
+                    <div class="code-line"><span class="keyword">const</span> <span class="variable">preview</span> =
+                        <span class="string">"Live"</span>;
+                    </div>
+                    <div class="code-line"><span class="function">update</span>(<span class="variable">preview</span>);
+                    </div>
+                    <div class="cursor"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <h2>Why Antigravity?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="icon">⚡</div>
+                <h3>Instant Updates</h3>
+                <p>See your changes immediately as you type. No reload required.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🎨</div>
+                <h3>Pixel Perfect</h3>
+                <p>Rendered with the same engine as your browser for 100% accuracy.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🔌</div>
+                <h3>Seamless</h3>
+                <p>Integrated directly into VS Code. No context switching.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="docs" class="docs-section">
+        <div class="docs-container">
+            <h2>Vollständige Dokumentation</h2>
+
+            <div class="docs-grid">
+                <!-- Getting Started -->
+                <article class="doc-section">
+                    <div class="section-header">
+                        <span class="section-number">01</span>
+                        <h3>Erste Schritte</h3>
+                    </div>
+                    <div class="section-content">
+                        <p class="intro-text">Willkommen zur vollständigen Anleitung der Antigravity Live Preview
+                            Extension. Diese Erweiterung optimiert Ihren Web-Entwicklungs-Workflow durch
+                            Echtzeit-Vorschau Ihrer Änderungen direkt in VS Code.</p>
+
+                        <div class="info-panel">
+                            <h4>📋 Voraussetzungen</h4>
+                            <ul class="requirement-list">
+                                <li><span class="check">✓</span> Visual Studio Code Version 1.80.0 oder höher</li>
+                                <li><span class="check">✓</span> Node.js und npm (nur für Build aus Quellcode)</li>
+                                <li><span class="check">✓</span> Grundkenntnisse in HTML/CSS</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-panel warning">
+                            <h4>⚠️ Wichtige Hinweise</h4>
+                            <p>Stellen Sie sicher, dass Sie die neueste Version von VS Code verwenden. Ältere Versionen
+                                könnten Kompatibilitätsprobleme aufweisen.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Installation -->
+                <article class="doc-section">
+                    <div class="section-header">
+                        <span class="section-number">02</span>
+                        <h3>Installation</h3>
+                    </div>
+                    <div class="section-content">
+                        <p class="intro-text">Es gibt zwei Methoden zur Installation der Extension:</p>
+
+                        <div class="method-option">
+                            <h4>🎯 Methode 1: Installation via VSIX (Empfohlen)</h4>
+                            <p class="method-desc">Diese Methode ist am einfachsten und für die meisten Benutzer
+                                geeignet.</p>
+
+                            <div class="step-group">
+                                <div class="detailed-step">
+                                    <div class="step-header">
+                                        <span class="step-badge">Schritt 1</span>
+                                        <h5>Extension Package herunterladen</h5>
+                                    </div>
+                                    <p>Laden Sie die neueste <code>.vsix</code> Datei aus dem Release-Bereich herunter.
+                                    </p>
+                                    <div class="code-snippet">
+                                        <code>antigravity-live-preview-0.0.1.vsix</code>
+                                    </div>
+                                </div>
+
+                                <div class="detailed-step">
+                                    <div class="step-header">
+                                        <span class="step-badge">Schritt 2</span>
+                                        <h5>VS Code Extensions öffnen</h5>
+                                    </div>
+                                    <p>Öffnen Sie die Extensions-Ansicht in VS Code:</p>
+                                    <ul class="action-list">
+                                        <li>Drücken Sie <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> (Windows/Linux)
+                                        </li>
+                                        <li>Oder <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> (Mac)</li>
+                                        <li>Oder klicken Sie auf das Extensions-Icon in der Sidebar</li>
+                                    </ul>
+                                </div>
+
+                                <div class="detailed-step">
+                                    <div class="step-header">
+                                        <span class="step-badge">Schritt 3</span>
+                                        <h5>VSIX-Datei installieren</h5>
+                                    </div>
+                                    <p>In der Extensions-Ansicht:</p>
+                                    <ol class="numbered-list">
+                                        <li>Klicken Sie auf das "..." Menü (oben rechts)</li>
+                                        <li>Wählen Sie <strong>"Install from VSIX..."</strong></li>
+                                        <li>Navigieren Sie zur heruntergeladenen .vsix Datei</li>
+                                        <li>Bestätigen Sie die Installation</li>
+                                    </ol>
+                                </div>
+
+                                <div class="detailed-step">
+                                    <div class="step-header">
+                                        <span class="step-badge">Schritt 4</span>
+                                        <h5>Installation verifizieren</h5>
+                                    </div>
+                                    <p>Nach erfolg reicher Installation:</p>
+                                    <ul class="action-list">
+                                        <li>Sehen Sie eine Bestätigungsmeldung</li>
+                                        <li>Die Extension erscheint in Ihrer Extension-Liste</li>
+                                        <li>Eventuell müssen Sie VS Code neu laden</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="method-option">
+                            <h4>💻 Methode 2: Build aus Quellcode (Für Entwickler)</h4>
+                            <p class="method-desc">Diese Methode ist für Entwickler gedacht, die den Quellcode
+                                modifizieren möchten.</p>
+
+                            <div class="step-group">
+                                <div class="detailed-step">
+                                    <div class="step-header">
+                                        <span class="step-badge">Schritt 1</span>
+                                        <h5>Repository klonen</h5>
+                                    </div>
+                                    <div class="terminal-block">
+                                        <div class="terminal-header">Terminal</div>
+                                        <pre><code>git clone https://github.com/yourusername/antigravity-live-preview.git
+cd antigravity-live-preview</code></pre>
+                                    </div>
+                                </div>
+
+                                <div class="detailed-step">
+                                    <div class="step-header">
+                                        <span class="step-badge">Schritt 2</span>
+                                        <h5>Abhängigkeiten installieren</h5>
+                                    </div>
+                                    <div class="terminal-block">
+                                        <div class="terminal-header">Terminal</div>
+                                        <pre><code>npm install</code></pre>
+                                    </div>
+                                    <p class="note">⏱️ Dies kann einige Minuten dauern...</p>
+                                </div>
+
+                                <div class="detailed-step">
+                                    <div class="step-header">
+                                        <span class="step-badge">Schritt 3</span>
+                                        <h5>Code kompilieren</h5>
+                                    </div>
+                                    <div class="terminal-block">
+                                        <div class="terminal-header">Terminal</div>
+                                        <pre><code>npm run compile</code></pre>
+                                    </div>
+                                </div>
+
+                                <div class="detailed-step">
+                                    <div class="step-header">
+                                        <span class="step-badge">Schritt 4</span>
+                                        <h5>Extension debuggen</h5>
+                                    </div>
+                                    <p>Öffnen Sie das Projekt in VS Code und:</p>
+                                    <ul class="action-list">
+                                        <li>Drücken Sie <kbd>F5</kbd></li>
+                                        <li>Ein neues "Extension Development Host" Fenster öffnet sich</li>
+                                        <li>Die Extension ist dort aktiv und einsatzbereit</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Usage Guide -->
+                <article class="doc-section">
+                    <div class="section-header">
+                        <span class="section-number">03</span>
+                        <h3>Verwendung</h3>
+                    </div>
+                    <div class="section-content">
+                        <p class="intro-text">Sobald die Extension installiert ist, können Sie sie mit wenigen Klicks
+                            nutzen.</p>
+
+                        <div class="usage-flow">
+                            <div class="flow-step">
+                                <div class="flow-number">1</div>
+                                <div class="flow-content">
+                                    <h4>Projekt öffnen</h4>
+                                    <p>Öffnen Sie einen Ordner mit HTML-Dateien in VS Code:</p>
+                                    <ul class="action-list">
+                                        <li><strong>Datei</strong> → <strong>Ordner öffnen...</strong></li>
+                                        <li>Oder: <kbd>Ctrl</kbd>+<kbd>K</kbd> <kbd>Ctrl</kbd>+<kbd>O</kbd></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="flow-step">
+                                <div class="flow-number">2</div>
+                                <div class="flow-content">
+                                    <h4>HTML-Datei öffnen</h4>
+                                    <p>Öffnen Sie eine beliebige <code>.html</code> Datei in Ihrem Projekt.</p>
+                                    <div class="tip-box">
+                                        💡 <strong>Tipp:</strong> Die Extension funktioniert am besten mit vollständigen
+                                        HTML-Dokumenten.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flow-step">
+                                <div class="flow-number">3</div>
+                                <div class="flow-content">
+                                    <h4>Live Preview starten</h4>
+                                    <p>Öffnen Sie die Command Palette:</p>
+                                    <ul class="action-list">
+                                        <li><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)</li>
+                                        <li><kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac)</li>
+                                    </ul>
+                                    <p>Tippen Sie dann:</p>
+                                    <div class="command-box">
+                                        Antigravity: Open Live Preview
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flow-step">
+                                <div class="flow-number">4</div>
+                                <div class="flow-content">
+                                    <h4>Live Editing</h4>
+                                    <p>Ein Preview-Panel öffnet sich neben Ihrem Editor:</p>
+                                    <ul class="feature-list">
+                                        <li>✨ Änderungen werden <strong>sofort</strong> angezeigt</li>
+                                        <li>🔄 Kein manuelles Reload notwendig</li>
+                                        <li>👀 Sehen Sie Ihre Änderungen in Echtzeit</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pro-tips">
+                            <h4>🎯 Professionelle Tipps</h4>
+                            <div class="tips-grid">
+                                <div class="tip-card">
+                                    <strong>Mehrere Dateien</strong>
+                                    <p>Wechseln Sie zwischen HTML-Dateien - das Preview aktualisiert sich automatisch.
+                                    </p>
+                                </div>
+                                <div class="tip-card">
+                                    <strong>CSS & JS</strong>
+                                    <p>Verknüpfte CSS- und JavaScript-Dateien werden ebenfalls live aktualisiert.</p>
+                                </div>
+                                <div class="tip-card">
+                                    <strong>Split View</strong>
+                                    <p>Nutzen Sie VS Code's Split Editor für optimalen Workflow.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Troubleshooting -->
+                <article class="doc-section">
+                    <div class="section-header">
+                        <span class="section-number">04</span>
+                        <h3>Problembehandlung</h3>
+                    </div>
+                    <div class="section-content">
+                        <div class="faq-list">
+                            <details class="faq-item">
+                                <summary><strong>❓ Preview aktualisiert sich nicht?</strong></summary>
+                                <div class="faq-answer">
+                                    <p><strong>Mögliche Ursachen und Lösungen:</strong></p>
+                                    <ul>
+                                        <li>Stellen Sie sicher, dass Sie eine <code>.html</code> Datei bearbeiten</li>
+                                        <li>Prüfen Sie, ob Auto Save aktiviert ist: <strong>Datei</strong> →
+                                            <strong>Auto Save</strong></li>
+                                        <li>Schließen Sie das Preview-Panel und öffnen Sie es erneut</li>
+                                        <li>Laden Sie VS Code neu: <kbd>Ctrl</kbd>+<kbd>R</kbd></li>
+                                    </ul>
+                                </div>
+                            </details>
+
+                            <details class="faq-item">
+                                <summary><strong>❓ CSS-Stile werden nicht angezeigt?</strong></summary>
+                                <div class="faq-answer">
+                                    <p><strong>Überprüfen Sie Folgendes:</strong></p>
+                                    <ul>
+                                        <li>Verwenden Sie relative Pfade für CSS-Links</li>
+                                        <li>Beispiel: <code>&lt;link rel="stylesheet" href="./style.css"&gt;</code></li>
+                                        <li>Stellen Sie sicher, dass die CSS-Datei im selben Projekt liegt</li>
+                                        <li>Prüfen Sie auf Tippfehler in Dateinamen</li>
+                                    </ul>
+                                </div>
+                            </details>
+
+                            <details class="faq-item">
+                                <summary><strong>❓ Command nicht gefunden?</strong></summary>
+                                <div class="faq-answer">
+                                    <p><strong>Wenn der "Open Live Preview" Befehl nicht erscheint:</strong></p>
+                                    <ul>
+                                        <li>Überprüfen Sie, ob die Extension installiert ist</li>
+                                        <li>Gehen Sie zu Extensions (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd>)</li>
+                                        <li>Suchen Sie nach "Antigravity Live Preview"</li>
+                                        <li>Aktivieren Sie die Extension, wenn sie deaktiviert ist</li>
+                                        <li>Starten Sie VS Code neu</li>
+                                    </ul>
+                                </div>
+                            </details>
+
+                            <details class="faq-item">
+                                <summary><strong>❓ Bilder werden nicht geladen?</strong></summary>
+                                <div class="faq-answer">
+                                    <p><strong>Bildpfade richtig konfigurieren:</strong></p>
+                                    <ul>
+                                        <li>Verwenden Sie relative Pfade:
+                                            <code>&lt;img src="./images/logo.png"&gt;</code></li>
+                                        <li>Vermeiden Sie absolute Pfade wie <code>C:/Users/...</code></li>
+                                        <li>Stellen Sie sicher, dass Bildateien im Workspace liegen</li>
+                                    </ul>
+                                </div>
+                            </details>
+
+                            <details class="faq-item">
+                                <summary><strong>❓ Performance-Probleme bei großen Dateien?</strong></summary>
+                                <div class="faq-answer">
+                                    <p><strong>Optimierungstipps:</strong></p>
+                                    <ul>
+                                        <li>Schließen Sie nicht benötigte Preview-Panels</li>
+                                        <li>Reduzieren Sie die Anzahl der geöffneten Dateien</li>
+                                        <li>Prüfen Sie, ob andere Extensions Konflikte verursachen</li>
+                                        <li>Deaktivieren Sie temporär andere Preview-Extensions</li>
+                                    </ul>
+                                </div>
+                            </details>
+                        </div>
+
+                        <div class="support-box">
+                            <h4>💬 Weitere Hilfe benötigt?</h4>
+                            <p>Wenn Ihr Problem weiterhin besteht:</p>
+                            <ul>
+                                <li>📖 Lesen Sie die vollständige Dokumentation auf GitHub</li>
+                                <li>🐛 Melden Sie Bugs im Issue Tracker</li>
+                                <li>💡 Schlagen Sie neue Features vor</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Antigravity Team. Built for developers.</p>
+    </footer>
+</body>
+
+</html>
