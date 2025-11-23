@@ -72,6 +72,9 @@ export class MultiTabPreviewPanel {
                     case 'addTab':
                         this.addNewTab();
                         break;
+                    case 'openLink':
+                        this._handleLink(message.href);
+                        break;
                 }
             },
             null,
@@ -355,22 +358,25 @@ export class MultiTabPreviewPanel {
         const navigationScript = `
             <script>
                 (function() {
+                    const vscode = acquireVsCodeApi();
                     // Prevent navigation by intercepting link clicks
                     document.addEventListener('click', function(e) {
                         const target = e.target.closest('a');
-                        if (target && target.href) {
+                        if (target) {
                             const href = target.getAttribute('href');
-                            // Allow hash links for anchor navigation
-                            if (href && href.startsWith('#')) {
-                                return; // Allow default behavior for hash links
+                            // Allow hash links for anchor navigation if they are just hashes
+                            if (!href || href.startsWith('#')) {
+                                return; 
                             }
+                            
                             // Prevent navigation for all other links
                             e.preventDefault();
-                            // Optionally open external links in browser
-                            if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
-                                // External links - could be opened in external browser
-                                console.log('External link clicked:', href);
-                            }
+                            
+                            // Send message to extension to handle navigation
+                            vscode.postMessage({ 
+                                command: 'openLink', 
+                                href: href 
+                            });
                         }
                     }, true);
                 })();
@@ -477,6 +483,44 @@ export class MultiTabPreviewPanel {
             const disposable = this._disposables.pop();
             if (disposable) {
                 disposable.dispose();
+            }
+        }
+    }
+
+    private async _handleLink(href: string) {
+        // Handle external links
+        if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('mailto:')) {
+            vscode.env.openExternal(vscode.Uri.parse(href));
+            return;
+        }
+
+        // Handle relative links
+        const activeTab = this._tabs.find(t => t.id === this._activeTabId);
+        if (activeTab && activeTab.uri) {
+            try {
+                const currentDir = path.dirname(activeTab.uri.fsPath);
+                const targetPath = path.join(currentDir, href);
+
+                if (fs.existsSync(targetPath)) {
+                    // Check if it's an HTML file
+                    if (path.extname(targetPath).toLowerCase().startsWith('.htm')) {
+                        const document = await vscode.workspace.openTextDocument(targetPath);
+
+                        // Update current tab
+                        activeTab.uri = document.uri;
+                        activeTab.title = path.basename(document.fileName);
+                        activeTab.content = document.getText();
+                        this._update();
+                    } else {
+                        // Open other files in editor
+                        const document = await vscode.workspace.openTextDocument(targetPath);
+                        vscode.window.showTextDocument(document);
+                    }
+                } else {
+                    vscode.window.showErrorMessage(`File not found: ${href}`);
+                }
+            } catch (error) {
+                console.error('Error handling link:', error);
             }
         }
     }

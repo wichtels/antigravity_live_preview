@@ -1,5 +1,7 @@
 # Antigravity Live Preview Extension
 
+> **⚠️ PUBLIC BETA**: This extension is currently in public beta. Features may be unstable. **Use at your own risk.**
+
 A live preview extension for **Antigravity & VS Code** with multi-tab support.
 
 **Author:** Torsten Wich Heiter  
